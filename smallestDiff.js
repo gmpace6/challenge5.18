@@ -23,23 +23,30 @@ let arr1 = [10, 20, 14, 16, 18]
 let arr2 = [30, 23, 54, 33, 96]
 let answerArr = []
 
-function smallestDiff(arr1, arr2) {
-    for(let i = 0; i < arr1.length; i++)
-    for(let j = 0; j < arr2.length; j++)
-        answerArr.push(Math.abs(arr1[i] - arr2[j]))
-    return answerArr.sort()
-}
-console.log(smallestDiff(arr1, arr2))
-
-
 // function smallestDiff(arr1, arr2) {
 //     for(let i = 0; i < arr1.length; i++)
 //     for(let j = 0; j < arr2.length; j++)
 //         answerArr.push(Math.abs(arr1[i] - arr2[j]))
-//         answerArr.sort(function(a, b) {
-//             return a - b
-//         })
-//     return answerArr
+//     return answerArr.sort()
 // }
 // console.log(smallestDiff(arr1, arr2))
+
+function smallestDiff(arr1, arr2) {
+  for (let i = 0; i < arr1.length; i++) {
+    for (let j = 0; j < arr2.length; j++) {
+      answerArr.push(Math.abs(arr1[i] - arr2[j]));
+    }
+  }
+  answerArr.sort(function (a, b) {
+    return a - b;
+  });
+  return answerArr[0];
+}
+console.log(smallestDiff(arr1, arr2));
+
+// function (a, b) {
+//     return a - b;
+//   }
+// is a callback function that sort whole integers within the array, instead of comparing each digit like in the commented-out section above (see results below):
+// [ 10, 12, 13, 13, 14, 15, 16, 17, 19, 20, 23, 3, 34, 36, 38, 40, 44, 5, 7, 76, 78, 80, 82, 86, 9 ]
 
